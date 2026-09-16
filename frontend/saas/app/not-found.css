@@ -1,0 +1,31 @@
+.maintenance-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 5rem;
+}
+
+.maintenance-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.maintenance-icon-cross {
+    font-size: 5rem; /* Makes the cross significantly larger */
+    font-weight: normal;
+    color: var(--highlight-solid); /* Uses the warm liturgical orange accent */
+    line-height: 1;
+
+    /* Optional: Adds a very soft, elegant gold/orange spiritual glow behind it */
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.15);
+
+    /* Slight micro-adjustment to center the unicode character perfectly */
+    transform: translateY(-2px);
+}
+
+.maintenance-title{
+    font-size: 1.5rem;
+    font-weight: bolder;
+}

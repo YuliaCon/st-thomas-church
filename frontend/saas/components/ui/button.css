@@ -1,0 +1,43 @@
+.site-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Sizing and Layout */
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    text-decoration: none;
+
+    /* Theming using your global variables */
+    background: var(--highlight-gradient); /* Uses your custom gold gradient */
+    color: var(--primary-foreground);       /* High-contrast crisp text */
+    border: 1px solid transparent;
+
+    /* Sourced dynamically from your theme radius configuration */
+    border-radius: var(--radius);
+
+    /* Smooth interaction engine */
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.site-button:hover {
+    /* Subtle micro-lift and deepening opacity effect on your gradient */
+    transform: translateY(-1px);
+    filter: brightness(1.08);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+}
+
+.site-button:active {
+    transform: translateY(0);
+    filter: brightness(0.95);
+}
+
+/* Accessible focus ring that pulls from your theme variables */
+.site-button:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+}

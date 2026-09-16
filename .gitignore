@@ -1,0 +1,49 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
+# Dependencies
+/node_modules
+frontend/saas-starter/node_modules/
+/.pnp
+.pnp.js
+
+# Next.js Build Output
+/.next/
+.next/
+
+text# Local Env Files (Do NOT commit these to GitHub)
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Optional: ONLY commit template files
+!.env.example
+
+# Node.js frontend dependencies (under frontned/saas)
+frontned/saas/node_modules/
+
+# Next.js, Nuxt, or Vite production build outputs
+frontned/saas/.next/
+frontned/saas/dist/
+frontned/saas/build/
+frontend/saas/node_modules/
+
+
+# Local configuration and runtime logs
+frontned/saas/.turbo/
+frontned/saas/*.log
+frontned/saas/.pnpm-debug.log*
+
+# Local environment secrets (DO NOT COMMIT)
+frontned/saas/.env*.local
+
+# Ignore Orchard Core backend static assets
+backend_Orchard/wwwroot/
+backend_Orchard/wwwroot/**
+
+.idea
+
