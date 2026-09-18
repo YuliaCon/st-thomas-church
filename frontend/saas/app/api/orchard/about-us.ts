@@ -1,3 +1,8 @@
+import {AboutUsData} from '@app/types/church-info';
+import {ImageFile} from "@/app/types/media";
+
+
+
 const GET_ABOUT_US_QUERY = `
 query {
     aboutUs (first: 1) {
@@ -63,7 +68,7 @@ export interface AboutUsQueryResponse {
     };
 }
 
-export default async function getAboutUs(): Promise<AboutUsQueryResponse> {
+export default async function getAboutUs(): Promise<AboutUsData> {
 
     const queryParam: string = encodeURIComponent(GET_ABOUT_US_QUERY);
     const endpoint = `${process.env.NEXT_PUBLIC_ORCHARD_URL}/api/graphql/?query=${queryParam}`;
@@ -79,8 +84,23 @@ export default async function getAboutUs(): Promise<AboutUsQueryResponse> {
             next: {revalidate: 60},
         });
         
-        return res.json();
+         const raw:AboutUsQueryResponse = await res.json(); //delete YAC 
+        const rawItem = raw?.data?.aboutUs?.[0];
+        
+        const aboutUsData: AboutUsData = {
+            headerMain: rawItem?.headerMain?.header || "",
+            subtitle: rawItem?.subtitle?.html || "",
+            mainInformation: rawItem?.mainInformation?.info || "",
 
+            // Safely drill down to the files array, default to empty array if missing
+            pageBanner: rawItem?.pageBanner?.image?.files || [],
+
+            // Maps contentItemIds array to your target property
+            relatedBlogIDs: rawItem?.relatedBlog?.contentItemIds || []
+        };
+        
+        return aboutUsData;
+        
     } catch (networkError: any) {
         // This catches low-level network issues (DNS failure, CORS, connection refused)
         console.log("🚨 Low-Level Fetch Network Failure:", networkError.message || networkError);

@@ -3,26 +3,25 @@ import  {getChurchContactInfo, getChurchAdderss} from '@/app/api/orchard/church-
 import { notFound } from 'next/navigation';
 import PageBanner from '@/components/images/PageBanner';
 import {getSanitizedHtml} from '@/app/utils/sanitize';
+import {AboutUsData} from '@app/types/church-info';
 
 
 export default async function AboutUsPage() {
     
-    const response:AboutUsQueryResponse= await getAboutUs();
-    // 1. Get the array from data (or response if extracted)
-    const aboutUsArray = response?.data?.aboutUs || response?.aboutUs;
-    // 2. Extract the first item from the array safely
-    const aboutUsData = Array.isArray(aboutUsArray) ? aboutUsArray[0] : aboutUsArray;
-
+    const aboutUsData:AboutUsData= await getAboutUs();
+    
     if (!aboutUsData) {
         notFound();
     }
     
+    console.log({'aboutUsData from about us page':aboutUsData});
+    
     const {headerMain,subtitle, mainInformation, pageBanner, relatedBlog} = aboutUsData;
-    const rawUrl = pageBanner?.image?.files?.[0]?.url;
-    const imageUrl = rawUrl?.startsWith('//') ? `https:${rawUrl}` : rawUrl;
+    const rawUrl = pageBanner[0]?.url;
+    const pageBannerUrl = rawUrl?.startsWith('//') ? `https:${rawUrl}` : rawUrl;
 
     //subtitle
-    const subtitleCleanHtml=getSanitizedHtml(aboutUsData?.subtitle?.html);
+    const subtitleCleanHtml=getSanitizedHtml(aboutUsData?.subtitle);
     
     //get address and contact info
 
@@ -30,17 +29,18 @@ export default async function AboutUsPage() {
     
     const {city, country, postalZIPcode,stateRegion, streetAddress }=getChurchAdderss();
     
-    console.log({"aaaaaaaaaaaa": {city, country, postalZIPcode,stateRegion, streetAddress }});
+   // console.log({"address from the about us page": {city, country, postalZIPcode,stateRegion, streetAddress }}); 
 
     return (
         <>
            
-            <h1>{headerMain.header}</h1>
+            <h1>{headerMain}</h1>
             <h2
                 dangerouslySetInnerHTML={{ __html: subtitleCleanHtml }}
             />
+            <p>{mainInformation} </p>
             <PageBanner
-                src={pageBanner?.image?.files?.[0]?.url}
+                src={pageBannerUrl}
                 alt={pageBanner?.imageDescription || "Banner"}
             />
             <p>{mainInformation.info}</p>

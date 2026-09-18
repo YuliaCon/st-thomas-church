@@ -122,7 +122,7 @@ export async function getChurchAdderss(): Promise<Address | null> {
             return null;
         }
         
-        console.log({ rawHtml });
+    
         const address:Address = {
             city:rawHtml.address.city,
             country:rawHtml.address.country,
