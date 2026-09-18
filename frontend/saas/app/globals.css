@@ -19,7 +19,7 @@
   --color-popover-foreground: hsl(var(--popover-foreground));
 
   --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-foreground: hsl(var(--dark-golden));
 
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
@@ -71,28 +71,29 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--dark-golden, currentColor);
   }
 }
 
 @layer utilities {
   body {
     font-family: "Manrope", Arial, Helvetica, sans-serif;
+    font-color: var(--dark-golden);
   }
 }
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 28, 31%, 20%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary-foreground: 28, 31%, 20%;
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 28, 31%, 20%;;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
     --accent: 210 40% 96.1%;
@@ -182,7 +183,9 @@
   --muted-foreground: hsl(240 3.8% 46.1%);
   --accent: hsl(240 4.8% 95.9%);
   --accent-foreground: hsl(240 5.9% 10%);
-  --highlight-solid: hsl(28, 34%, 57%); /* Your fallback flat color */
+  --highlight-solid: hsl(28, 34%, 57%); /* fallback flat color */
+  --dark-golden: hsl(28, 34%, 15%); /*main font color */
+  --light-golden:#b7906e50;
   --highlight-gradient: linear-gradient(0deg, rgba(183,144,110,1) 42%, rgba(139,106,77,1) 100%);
   --destructive: hsl(0 84.2% 60.2%);
   --destructive-foreground: hsl(0 0% 98%);

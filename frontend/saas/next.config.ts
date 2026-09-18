@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
         protocol: 'https', // Change to 'https' if your Orchard is running on HTTPS
         hostname: 'localhost',
         port: '7199', // Match your Orchard port
+        pathname: '/media/**',
       },
     ],
   },

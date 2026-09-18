@@ -1,39 +1,52 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import  {getLogo} from  '@/app/api/orchard/mediaAssets';
 
-export default function Logo({ className }: LogoProps) {
-    const logoUrl = null;
-    //const logoUrl = await fetchLogoUrl();
+export default  function Logo({ className }: LogoProps) {
 
+    // 1. Set state to hold the logo data
+    const [logo, setLogo] = useState<{ image: Array<{ url: string }> } | null>(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // 2. Call the async getLogo function inside useEffect
+        async function fetchLogoData() {
+            try {
+                const logoData = await getLogo();
+                if (logoData) {
+                    setLogo(logoData);
+                }
+            } catch (error) {
+                console.error('Failed to fetch logo:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchLogoData();
+    }, []);
+
+    if (loading) {
+        return <div className="w-[120px] h-[40px] bg-gray-200 animate-pulse" />;
+    }
+
+    let logoUrl = logo?.url;
+
+    if (!logoUrl) {
+        logoUrl='/churchLogo.svg'; // Fallback text if logo is missing
+    }
+    //to keep transparancy of the logo, we must replace jpg format with png
+    const transparentUrl=logoUrl.replace('jpg','png');
+    logoUrl=transparentUrl;
+    
     return (
-        <>
-            <Image
-                src={logoUrl ? logoUrl : '/churchLogo.svg'}
+        <div style={{ backgroundColor: 'transparent' }}>
+        <img
+                src={logoUrl}
                 alt="☦ Orthodox Church Logo"
-                width={150}
-                height={50}
-                priority
+                style={{ display: 'block', maxWidth: 'auto', height: '50px' }}
             />
-        </>
+        </div>
     );
 }
-
-
-// <svg
-//     xmlns="http://www.w3.org/2000/svg"
-//     // viewBox="0 0 100 100"
-//     viewBox="0 0 150 150"
-//     className={className}
-//     id="svg4"
-//     overflow="visible"
-//     preserveAspectRatio="xMinYMin meet"
-// >
-//     {/* Shapes matching your vector graphics structure */}
-//     <rect width="195" height="70" x="2.5" y="200" fill="currentColor" rx="25" id="rect1" />
-//     <circle r="70" cx="100" cy="190" fill="currentColor" id="circle1" />
-//     <rect width="10" height="150" x="93" y="25" fill="currentColor" rx="5" id="rect2" />
-//     <rect width="90" height="10" x="53" y="40" fill="currentColor" rx="5" id="rect3" />
-//     <rect width="50" height="10" x="-3" y="-20" fill="currentColor" rx="5" transform="translate(74,95) rotate(25)" id="rect4" />
-//
-//     {/* Example custom path using currentColor */}
-//     <path d="M10 10 L 20 20" fill="currentColor" />
-// </svg>
