@@ -43,6 +43,7 @@ export default async function AboutUsPage() {
                 src={pageBannerUrl}
                 alt={pageBanner?.imageDescription || "Banner"}
             />
+            
             <p>{mainInformation.info}</p>
          
             <p

@@ -127,8 +127,8 @@ export async function getChurchAdderss(): Promise<Address | null> {
             city:rawHtml.address.city,
             country:rawHtml.address.country,
             postalZIPCode: rawHtml.address.postalZIPCode,
-            stateRegion: rawHtml.address.postalZIPCode,
-            streetAddress:rawHtml.address.postalZIPCode
+            stateRegion: rawHtml.address.stateRegion,
+            streetAddress:rawHtml.address.streetAddress
         }
         
     return  address;

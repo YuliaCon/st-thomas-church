@@ -1,0 +1,132 @@
+/*Greeting  */
+.greeting-large{
+    font-size: 2rem;
+    /*
+        Greating has gradient text color
+    */
+    /* 1. Define your gradient background */
+    background: var(--highlight-gradient);
+    /* 2. Clip the background strictly to the text shapes */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* 3. Make the actual text transparent so the background shows through */
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback for older browsers */
+
+
+}
+
+
+
+/*
+LAYOUT OF THE FIRST ROW
+*/
+ 
+/* Base Mobile Styles (Stuck on top of each other, full width) */
+.first-row{
+    display: grid;
+    /* Single column taking up 100% width */
+    grid-template-columns: 1fr;
+    /* First row matches its content height, second row takes the rest */
+    grid-template-rows: auto 1fr;
+    height:auto;
+    width: 100%;
+    align-items:center;   /* Centered vertically */
+    
+}
+/* Left Column Styling */
+.first-row .left {
+    display: flex;
+    flex-direction: column;
+  
+    /* margin-top: 3rem; */
+}
+
+.first-row .left > section {
+    /*height: 100%;*/
+    display: flex;
+    flex-direction: column;
+    margin:1rem 0;
+   
+}
+
+/* --- Typography --- */
+.first-row h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.75rem 0;
+
+    /* Applying your beautiful highlight gradient to headers */
+    background: var(--highlight-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.first-row p {
+    margin: 0 0 0.5rem 0;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.first-row p:last-child {
+    margin-bottom: 0;
+}
+
+/* Specific inner element tweaks */
+.service-times time {
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.service-times p:last-of-type {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--muted-foreground);
+}
+
+
+/*RIGHT COLUMN  */
+
+.first-row .right  {
+    display: flex;
+    justify-content: flex-end;
+    justify-items: end;
+}
+
+/*Image */
+.img-main {
+    border-radius: 0 100px 8rem 100px;;
+}
+
+
+
+/* Desktop Styles (Optional: Switch to columns or different layout on larger screens) */
+@media (min-width: 768px) {
+    .first-row{
+     
+        /* Example: change to side-by-side columns on tablet/desktop */
+        grid-template-columns: 30rem 1fr;
+        grid-template-rows: 1fr;
+        gap: 2.5rem; /* Clean vertical spacing between sections */
+    }
+
+
+    .greeting-large {
+        font-size: 3rem;
+    }
+   
+    .img-main {
+        /*border:5px solid midnightblue;*/
+        height: 40rem;
+        border-radius: 0 100px 8rem 100px;
+    }
+
+}
+
+
+
+

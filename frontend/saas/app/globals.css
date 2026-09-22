@@ -279,5 +279,66 @@
   }
 }
 
+/*
+----break
+ */
+
+/*
+--common styles
+ */
+html{
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  min-height: 100vh; /* Takes up 100% of the viewport height */
+  margin: 0;
+  background-color:var(--background);
+  background: var(--base-background);
+  
+}
+
+body{
+  margin: 0 auto;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Header and footer take up their own space, main fills the rest */
+}
+
+.content{
+  margin-left:auto;
+  margin-right:auto;
+  max-width: 80rem;
+}
+
+
+main{
+   padding: 1rem;
+}
+
+h1{
+  font-size: 2rem;
+  font-weight: bold;
+}
+h2{
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-decoration: italic;
+}
+
+h3{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+h4{
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+ .img-blured {
+  max-width: 80%;
+  border-radius: 3rem;
+  box-shadow: 0 0 25px 5px var( --dark-golden);
+}
+
 
 

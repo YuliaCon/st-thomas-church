@@ -3,7 +3,8 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   experimental: {
     ppr: true,
-    clientSegmentCache: true
+    clientSegmentCache: true,
+    devTools: false,
   },
   images: {
     remotePatterns: [
