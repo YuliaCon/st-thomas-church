@@ -12,7 +12,7 @@
     color: #1a1a1a;
 }
 .blog-post img {
-    height: 400px;
+    max-height: 400px;
     width: auto;
     border-radius: 4px;
     objec-fit: cover;

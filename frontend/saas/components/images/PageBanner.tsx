@@ -9,9 +9,8 @@ export default function PageBanner({ src, imageDescription, width = null, height
     const formattedSrc = src.startsWith('//') ? `https:${src}` : src;
 
     return (
-        <div className={`page-banner blur-container   ${className}`}>
+        <div className={`page-banner   ${className}`}>
                 <img className="img-blured"
-                     src={imageDescription} 
                     src={formattedSrc}
                     alt={imageDescription || "Page banner image"}
                     width={width || undefined}

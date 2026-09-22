@@ -14,12 +14,16 @@ export const BlogPost=({blog} )=>{
                 {blog.displayText || ""}
             </h2>
         </header>
-        <section>
-            <img
-                src={blog.image[0].url}
-                alt={blog.image[0].fileName  || "Blog image" }
-            />
-        </section>
+
+        {blog.image?.[0] &&
+            <section>
+                <img
+                    src={blog.image[0]?.url}
+                    alt={blog.image[0]?.fileName || "Blog image"}
+                />
+            </section>
+        }
+     
         {/* Body Content with Smart CSS Clamping */}
         <div className="post-body"
             /* 🪄 The magic truncate recipe when collapsed */

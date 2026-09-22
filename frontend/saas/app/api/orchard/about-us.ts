@@ -1,5 +1,6 @@
 import {AboutUsData} from '@app/types/church-info';
 import {ImageFile} from "@/app/types/media";
+import {getSanitizedHtml} from "@/app/utils/sanitize";
 
 
 
@@ -96,7 +97,8 @@ export default async function getAboutUs(): Promise<AboutUsData> {
             pageBanner: rawItem?.pageBanner?.image?.files || [],
 
             // Maps contentItemIds array to your target property
-            relatedBlogIDs: rawItem?.relatedBlog?.contentItemIds || []
+            relatedBlogIDs: rawItem?.relatedBlog?.contentItemIds || [],
+            additionalinformation: getSanitizedHtml(rawItem?.additionalinformation?.html)
         };
         
         return aboutUsData;

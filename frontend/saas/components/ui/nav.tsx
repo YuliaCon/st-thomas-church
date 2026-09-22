@@ -15,7 +15,8 @@ export function PublicNav() {
         { href: '/about-us', label: 'About Us', icon: Church },
         { href: '/contact', label: 'Contact', icon: Calendar },
         { href: '/clergy', label: 'Clergy', icon: Users },
-        { href: '/literature', label: 'Literature', icon: BookOpen },
+        { href: '/literature', label: 'Publications', icon: BookOpen },
+        { href: '/blogs', label: 'Blogs', icon: BookOpen },
     ];
 
     return (

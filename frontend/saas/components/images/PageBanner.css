@@ -1,20 +1,45 @@
+
+
+/* --- Outer Container --- */
 .page-banner {
     display: block;
-    max-width: 100%;
+    width: 100%;
+    /*max-width: 1200px; !* Gives the banner an elegant widescreen boundary limit *!*/
+    /*margin: 2rem auto;  !* Centers the entire banner on wide monitors *!*/
+    /*padding-inline: 1rem; !* Simple safety breathing space for mobile screens *!*/
+    box-sizing: border-box;
+    height: max-content;
+
 }
 
+/* --- Banner Image Base Styles (Mobile First) --- */
 .page-banner img {
-    max-width: 100%;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 15px 3px var( --dark-golden);
- 
+    display: block;
+    width: 100%;
+    /*max-height: 35rem; !* Fixed cinematic height standard on mobile *!*/
+    object-fit: cover; /* 🚀 Crucial: crops the image dynamically instead of stretching it */
+    object-position: right; /* Keeps the core focus of the image dead-center */
+    border-radius: var(--radius, 0.75rem);
+    /* Cleaned up your golden drop glow to make it look smooth and modern */
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3),
+    0 0 20px 2px var(--light-golden);
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Desktop and Tablet Overrides */
+
+/* --- Desktop and Tablet Enhancements (Screen widths 768px+) --- */
 @media (min-width: 768px) {
+    .page-banner {
+        /*padding-inline: 2rem;*/
+        width: 100%;
+        min-height: max-content; 
+        width: auto;
+    }
+
     .page-banner img {
-        max-width: 80%; /* Constrains the image on larger screens */
-        border-radius: 2rem;
-        margin: 1rem;
+        height: 400px; /* Deep cinematic height expansion for desktop monitors */
+        border-radius: 1.5rem; /* Balanced radius looks cleaner than full 2rem on cards */
+        min-height: 35rem;
     }
 }
