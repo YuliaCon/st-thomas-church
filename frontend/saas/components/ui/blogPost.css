@@ -1,0 +1,26 @@
+.blog-post {
+    border: 1px solid #e1e1e1;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: var(--card, #fff);
+    margin-bottom: 1rem;
+    max-width: 60rem;
+}
+
+.blog-post h2 {
+    margin: 0 0 0.5rem 0;
+    color: #1a1a1a;
+}
+.blog-post img {
+    height: 400px;
+    width: auto;
+    border-radius: 4px;
+    objec-fit: cover;
+}
+
+.blog-post .post-body{
+    margin-top: 1rem; 
+    lineH-height: 1.6;
+    color: #333;
+    
+}

@@ -1,5 +1,4 @@
+import {notFound} from "next/navigation";
 export default async function LiteraturePage() {
-    return (
-        <>Literature</>
-    )
+  notFound();
 }
