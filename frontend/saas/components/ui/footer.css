@@ -20,4 +20,12 @@ footer .content {
 footer section {
     margin-top: 1rem;
     max-width: 20rem;
+    margin-left: 1rem;
 }
+
+@media screen and (min-width: 800px) {
+    footer section {
+        margin-left: 0;
+    }
+}
+
