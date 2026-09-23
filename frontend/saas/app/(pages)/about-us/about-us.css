@@ -19,15 +19,13 @@
 }
 
 .about-page-container h2 {
-    font-size: 1.35rem;
-    font-weight: 500;
+    font-size: 1.7rem;
+    font-weight: 600;
     text-align: center;
     max-width: 600px;
-    margin: 0 auto 3rem auto;
-   
-
+    margin: 0 auto 1rem auto;
     /* Elegant soft color to give contrast against the main H1 */
-    color: var(--muted-foreground);
+    color: var(--dark-golden);
 }
 
 /* Catch potential subheadings or raw styling nested inside the subtitle HTML string */
@@ -40,7 +38,6 @@
 .about-page-container p {
     font-size: 1.125rem;
     margin-top: 0;
-    margin-bottom: 1.75rem; /* Clean rhythm breathing room between paragraphs */
 }
 
 
@@ -74,11 +71,6 @@
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
-    .about-page-container {
-        margin: 1rem;
-        
-    }
-    
     .about-page-container > * {
         margin-bottom: 1rem;
     }

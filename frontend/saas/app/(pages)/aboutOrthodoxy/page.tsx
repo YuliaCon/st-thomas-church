@@ -17,14 +17,27 @@ export default async function BlogsPage() {
         }
 
     // 1. Sort the blog posts by date: latest (newest) first
-    const sortedBlogs = [...blogs].sort((a, b) =>
-        new Date(b.createdUtc).getTime() - new Date(a.createdUtc).getTime()
-    );
 
+    const sortedAndFilteredBlogs = [...blogs]
+        .filter(b => b.blogType === 'aboutFaith')
+        .sort((a, b) =>
+            new Date(a.createdUtc).getTime() - new Date(b.createdUtc).getTime()
+        );
+
+    if (sortedAndFilteredBlogs.length === 0) {
+        return (
+            <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+                <h1>Blogs</h1>
+                <p>No blog posts found. Make sure you have created and published posts in Orchard Core.</p>
+            </div>
+        );
+    }     
+        
+        
     return (
         <div>
             <div style={{display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '2rem'}}>
-                {sortedBlogs.map((blog) => (
+                {sortedAndFilteredBlogs.map((blog) => (
                     <BlogPost key={blog.contentItemId} blog={blog}/>))}
             </div>
         </div>

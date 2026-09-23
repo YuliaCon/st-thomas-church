@@ -10,13 +10,14 @@ export function PublicNav() {
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [
-        { href: '/', label: 'Home', icon: House }, 
+        { href: '/', label: 'Home', icon: House },
+        { href: '/aboutOrthodoxy', label: 'About Orthodoxy', icon: BookOpen },
         { href: '/services', label: 'Services', icon: Clock },
         { href: '/about-us', label: 'About Us', icon: Church },
         { href: '/contact', label: 'Contact', icon: Calendar },
         { href: '/clergy', label: 'Clergy', icon: Users },
         { href: '/literature', label: 'Publications', icon: BookOpen },
-        { href: '/blogs', label: 'Blogs', icon: BookOpen },
+       
     ];
 
     return (

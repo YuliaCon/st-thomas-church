@@ -51,8 +51,9 @@ export default async function AboutUsPage() {
                dangerouslySetInnerHTML={{ __html: contactInfoHtml }}
             />
             
-            <p className="additional-info">
-                {additionalinformation}
+            <p className="additional-info"
+                dangerouslySetInnerHTML={{__html:additionalinformation}} 
+                >
             </p>
 
             {relatedBlog &&  <BlogPost blog={relatedBlog}/> }

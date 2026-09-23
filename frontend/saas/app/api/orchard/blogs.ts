@@ -18,6 +18,7 @@ const GET_ALL_BLOGS_QUERY = `
         markdownBody {
           html
         }
+        blogType
      }
   }
 `;
@@ -27,6 +28,7 @@ interface OrchardDataPayload  {
     createdUtc: string;
     modifiedUtc:string;
     displayText: string;
+    blogType:string;
     image: {
         files: Array<{
             url:string
@@ -53,6 +55,7 @@ export type ContentItem = {
     markdownBody: {
         html: string;
     };
+    blogType:string;
 };
 
 async function fetcBlogsRaw():Promise<OrchardDataPayload> {
@@ -83,6 +86,7 @@ export async function getBlogs(): Promise<BlogItem[] | null> {
             displayText: raw.displayText,
             image: raw.image?.files || [],
             markdownBody: getSanitizedHtml(raw.markdownBody.html),
+            blogType: raw.blogType,
         }));
       //  console.log({'blogs from getBlogs()': blogs}); //dele YAC
         return blogs;
