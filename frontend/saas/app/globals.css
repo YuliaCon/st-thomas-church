@@ -342,4 +342,22 @@ h4{
 }
 
 
+.gradient-dark-header-large{
+  font-size: 2rem;
+  /*
+      Greating has gradient text color
+  */
+  /* 1. Define your gradient background */
+  background: var(--header-gradient-dark);
+
+  /* 2. Clip the background strictly to the text shapes */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+
+  /* 3. Make the actual text transparent so the background shows through */
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Fallback for older browsers */
+
+}
 

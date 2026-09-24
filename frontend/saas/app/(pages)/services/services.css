@@ -1,0 +1,12 @@
+.service-times-page{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+    h1{
+        margin-bottom: 1rem;
+    }
+}
+

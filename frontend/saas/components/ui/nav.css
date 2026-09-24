@@ -102,6 +102,7 @@
 /* Navigation Links */
 .nav-link {
     font-size: 0.875rem;
+    text-transform: uppercase;
     font-weight: 500;
     color: var(--dark-golden, #4b5563);
     text-decoration: none;
